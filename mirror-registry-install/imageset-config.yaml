@@ -1,0 +1,13 @@
+kind: ImageSetConfiguration
+apiVersion: mirror.openshift.io/v1alpha2
+storageConfig:
+  registry:
+    imageURL: https://your-registry.lab:8443/openshift4
+    skipTLS: false
+mirror:
+  platform:
+    channels:
+    - name: stable-4.12
+      minVersion: 4.12.9
+      maxVersion: 4.12.10
+      type: ocp
