@@ -23,8 +23,11 @@ if [[ -z "$QUAY_HOSTNAME" || -z "$QUAY_ROOT" || -z "$QUAY_USER" || -z "$QUAY_PAS
     exit 1
 fi
 
+# Export PATH
+export PATH=$PATH:.
+
 # Mirror install
-mirror-registry install --quayHostname ${QUAY_HOSTNAME} --quayRoot ${QUAY_ROOT} --initUser ${QUAY_USER} --initPassword ${QUAY_PASSWORD}
+mirror-registry install --quayHostname ${QUAY_HOSTNAME} --quayRoot ${QUAY_ROOT} --initUser ${QUAY_USER} --initPassword ${QUAY_PASSWORD} -v
 
 # Check if mirror-registry completed successfully
 if [ $? -eq 0 ]; then
