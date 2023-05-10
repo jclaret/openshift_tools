@@ -24,7 +24,7 @@ kind: ImageSetConfiguration
 apiVersion: mirror.openshift.io/v1alpha2
 storageConfig:
   registry:
-    imageURL: https://$QUAY_HOSTNAME/openshift4
+    imageURL: $QUAY_HOSTNAME/openshift4
     skipTLS: false
 mirror:
   platform:
