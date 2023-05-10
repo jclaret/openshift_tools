@@ -42,9 +42,15 @@ cat << EOF > auth.json
 {"auths":{"$QUAY_HOSTNAME":{"auth":"$AUTH"}}}
 EOF
 
-# Copy the auth.json file to the Docker config location
+# Ensure the Docker configuration directory exists
 mkdir -p ~/.docker
-cp auth.json ~/.docker/config.json || error_exit "Failed to copy the authentication file to the Docker config location."
+
+# Merge pull-secret.json and auth.json, then output to Docker's config.json
+if jq -s '.[0] * .[1]' pull-secret.json auth.json > ~/.docker/config.json; then
+    echo "Successfully merged pull-secret.json and auth.json into Docker's config.json."
+else
+    error_exit "Failed to merge pull-secret.json and auth.json files."
+fi
 
 echo "Authentication file successfully generated and ready for use."
 
