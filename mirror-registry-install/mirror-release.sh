@@ -43,6 +43,7 @@ cat << EOF > auth.json
 EOF
 
 # Ensure the Docker configuration directory exists
+# NOTE: https://github.com/containers/image/blob/main/docs/containers-auth.json.5.md
 mkdir -p ~/.docker
 
 # Merge pull-secret.json and auth.json, then output to Docker's config.json
