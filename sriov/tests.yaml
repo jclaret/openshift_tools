@@ -1,0 +1,18 @@
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: policy-2
+  namespace: openshift-sriov-network-operator
+spec:
+  nodeSelector:
+    feature.node.kubernetes.io/network-sriov.capable: "true"
+  resourceName: intelnics
+  priority: 99
+  mtu: 9000
+  numVfs: 5
+  nicSelector:
+      deviceID: 0d58
+      rootDevices:
+      - 0000:b5:00.1
+      vendor: "8086"
+  deviceType: netdevice

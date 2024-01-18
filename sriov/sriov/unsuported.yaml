@@ -1,0 +1,14 @@
+apiVersion: v1
+data:
+  X520: 15b3 1015 0002
+  X540: 15b3 1015 0003
+  X560: 15b3 1015 0004
+  X580: 15b3 1015 0005
+  X600: 15b3 1015 0006
+  X620: 15b3 1015 0007
+  X640: 15b3 1015 0008
+  X660: 15b3 1015 0009
+kind: ConfigMap
+metadata:
+  name: unsupported-nic-ids
+  namespace: openshift-sriov-network-operator

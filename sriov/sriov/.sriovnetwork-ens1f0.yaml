@@ -1,0 +1,12 @@
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetwork
+metadata:
+  name: sriov-net-ens1f0-vfiopci
+  namespace: openshift-sriov-network-operator
+spec:
+  networkNamespace: sriov-testing
+  ipam: '{ "type": "static" }'
+  vlan: 309
+  resourceName: sriovens1f0vf0
+  trust: "on"
+  capabilities: '{ "mac": true, "ips": true }'

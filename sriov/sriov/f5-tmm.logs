@@ -1,0 +1,164 @@
++ exec /opt/bin/mapres --tmm-tcl-file --tmm-args-name --allow-pipefail --info
+<is_k8s_in_cluster> INFO: Detected Kubernetes Environment
+<is_k8s_restart> INFO: Detected TMM restart in Kubernetes Environment
+<get_hugepages> INFO: Increasing huge pages to 1280
+<get_hugepages> INFO: File /sys/fs/cgroup/hugetlb/hugetlb.2MB.limit_in_bytes specifies 0xc0000000
+<get_prov_yaml_data> INFO: Loading /opt/lib/tmm/prov.yaml
+<lim_tmm_by_mem> WARNING: Insufficient memory for 40 cpu; restricting to 1 cpu
+<update_tmm_count> WARNING: Reducing core count to 1
+<setup_named_pipes> INFO: Deleting named pipes for 1 tmm threads, if necessary
+<process_etc_resolv> INFO: DNS_NAME_SERVER=172.30.0.10
+<process_etc_resolv> INFO: DNS_SEARCH_LIST=spk-ingress.svc.cluster.local svc.cluster.local cluster.local rna1.cloud.lab.eng.bos.redhat.com
+Platform: Z100
+Error opening file for logging - 2 (No such file or directory).
+Size of reserved memory area below 4GB: 0x90000000
+decl_handler_ncp_register/785: Disabling use of original declarative protobufs.
+<133> f5-tmm-68f497596-n8rqq tmm[14922]: 0101036d:5: POD ID bc78cc47-9532-484e-9872-5e93dc9d0d4d.
+export sw tx fn
+Measured CPU frequency in HZ : 1995365000
+LIBDATASYNC|NOTICE|datasync.c:0156|datasync_userspace_init: success
+AVR: A buffer is taken. Current buffer count is [7]
+Initilized AVR channel manager for schema http with 1 channels
+AVR: AVR memory initialized
+Hash type successfully set to xor_ex
+Failed to get most accurate value for tsc_khz, trying fallback.
+cycles_per_tick 1995376.605
+cycles_per_usec 1995
+TMJAIL_DIR not set, not loading plugins.
+<134>Jul 27 09:25:02 f5-tmm-68f497596-n8rqq tmm[14922]: 0114002b:6: HA ready_for_world tmm enabled.
+<134>Jul 27 09:25:02 f5-tmm-68f497596-n8rqq tmm[14922]: 0114002b:6: HA tmm_detect_fail_t tmm enabled.
+AVR: A buffer is taken. Current buffer count is [7]
+Initilized AVR channel manager for schema tcp with 1 channels
+AVR memory for TCP analytics report initialized
+TMM addresses - IP: 169.254.0.1 MAC: 00:01:23:45:67:00 Bcast: 169.254.0.255 Shared: 169.254.0.254 Host: 169.254.0.253
+register_driver: virtio
+register_driver: vmxnet3
+register_driver: dpdk
+register_driver: sock
+register_driver: mlxvf5
+register_driver: ixlv
+register_driver: tap
+register_driver: ixvf
+register_driver: f5hsb1
+xnet: libxnet.so v0 loaded
+<131>Jul 27 09:25:02 f5-tmm-68f497596-n8rqq tmm[14922]: 01960021:3: dlopen returned /usr/lib64/fips/pkcs11_nethsm_tmm.so: cannot open shared object file: No such file or directory for module /usr/lib64/fips/pkcs11_nethsm_tmm.so.
+<131>Jul 27 09:25:02 f5-tmm-68f497596-n8rqq tmm[14922]: 01960021:3: dlopen returned /usr/lib64/fips/cavium_luna.so: cannot open shared object file: No such file or directory for module /usr/lib64/fips/cavium_luna.so.
+<131>Jul 27 09:25:02 f5-tmm-68f497596-n8rqq tmm[14922]: 01960021:3: dlopen returned /usr/lib64/fips/cavium_ngfips.so: cannot open shared object file: No such file or directory for module /usr/lib64/fips/cavium_ngfips.so.
+<131>Jul 27 09:25:02 f5-tmm-68f497596-n8rqq tmm[14922]: 01960021:3: dlopen returned /usr/lib64/fips/cavium_n3fips.so: cannot open shared object file: No such file or directory for module /usr/lib64/fips/cavium_n3fips.so.
+xchg.0: packet exchange (node 0.0, 9000 mtu).
+tap(tap)[00:00.0]: TCL force_rx_iq: 1
+tap(tap)[00:00.0]: TCL force_tx_iq: 1
+tap(tap)[00:00.0]: TCL ign_hw_dag: 0
+tap(tap)[00:00.0]: TCL rx_devq_sz: 512
+tap(tap)[00:00.0]: TCL tx_devq_sz: 512
+tap(tap)[00:00.0]: TCL rx_iq_sz: 256
+tap(tap)[00:00.0]: TCL tx_iq_sz: 512
+tap(tap)[00:00.0]: TCL max_poll: 64
+tap(tap)[00:00.0]: TCL rx_max_devq: 0
+tap(tap)[00:00.0]: TCL tx_max_devq: 0
+tap(tap)[00:00.0]: TCL allow_sw_lro: 0
+tap(tap)[00:00.0]: TCL MTU: 9198
+tap(tap)[00:00.0]: TCL force_sw_tcs: 0
+tap(tap)[00:00.0]: Warning: driver changed rxq cnt/sz from 1/512 to 1/1
+tap(tap)[00:00.0]: Warning: driver changed txq cnt/sz from 1/512 to 1/1
+tap(tap)[00:00.0]: MAC: 00:01:23:45:67:00
+ADM Ingress drop rate initializing, 0
+bptdbg_cnt: Init stats done.
+LIBDATASYNC|NOTICE|datasync.c:0156|datasync_userspace_init: success
+DOSL7 cannot init plugin hashes: probably because ASM is not provisioned
+pfkeydb_ipsec_sa_init_cb/620: is OK
+IKE: Initialization successful.
+tap[0:0.0]: Open request for tap tmm received
+Pool Member Status Change: pool member fe80::201:23ff:fe45:6700@tmm:0 in snat_automap[0] is up.
+Pool Member Status Change: pool member 169.254.0.1:0 in snat_automap[0] is up.
+Pool Member Status Change: pool member fe80::201:23ff:fe45:6700@tmm:0 in snat_automap[0] is up.
+<133>Jul 27 09:25:02 f5-tmm-68f497596-n8rqq tmm[14922]: 01010059:5: Kernel operation ignored for: route (add)  127.0.0.1 via 169.254.0.253
+<133>Jul 27 09:25:02 f5-tmm-68f497596-n8rqq tmm[14922]: 01010059:5: Kernel operation ignored for: route (add)  ::1 via fe80::298:76ff:fe54:3210@tmm
+Scheduler: rtc freq 4096Hz [def 4096, tcl 4096, db -1]
+master key not available for passphrase decryption
+<130>Jul 27 09:25:02 f5-tmm-68f497596-n8rqq tmm[14922]: 01260029:2: Profile _ha_cgc_clientssl - /opt/f5/mbip/toda/timescale/certificates/f5-fsm-tmm.pem reading: Unknown error.
+<130>Jul 27 09:25:02 f5-tmm-68f497596-n8rqq tmm[14922]: 01260030:2: Profile _ha_cgc_clientssl - cannot load key/cert/chain: /opt/f5/mbip/toda/timescale/certificates/f5-fsm-tmm-key.pem//opt/f5/mbip/toda/timescale/certificates/f5-fsm-tmm.pem/: Unknown error.
+<130>Jul 27 09:25:02 f5-tmm-68f497596-n8rqq tmm[14922]: 01260027:2: Profile _ha_cgc_clientssl - cannot load Certificate Authority /opt/f5/mbip/toda/timescale/certificates/ca.pem: Unknown error.
+master key not available for passphrase decryption
+<130>Jul 27 09:25:02 f5-tmm-68f497596-n8rqq tmm[14922]: 01260029:2: Profile _ha_cgc_serverssl - /opt/f5/mbip/toda/timescale/certificates/f5-fsm-tmm.pem reading: Unknown error.
+<130>Jul 27 09:25:02 f5-tmm-68f497596-n8rqq tmm[14922]: 01260030:2: Profile _ha_cgc_serverssl - cannot load key/cert/chain: /opt/f5/mbip/toda/timescale/certificates/f5-fsm-tmm-key.pem//opt/f5/mbip/toda/timescale/certificates/f5-fsm-tmm.pem/: Unknown error.
+Pool Member Status Change: pool member 127.20.1.254:10001 in _tmm_firepass_apd_pool_chassis is up.
+Pool Member Status Change: pool member 127.20.2.254:10001 in _tmm_firepass_apd_pool_chassis is up.
+Pool Member Status Change: pool member 127.20.3.254:10001 in _tmm_firepass_apd_pool_chassis is up.
+Pool Member Status Change: pool member 127.20.4.254:10001 in _tmm_firepass_apd_pool_chassis is up.
+Pool Member Status Change: pool member 127.20.5.254:10001 in _tmm_firepass_apd_pool_chassis is up.
+Pool Member Status Change: pool member 127.20.6.254:10001 in _tmm_firepass_apd_pool_chassis is up.
+Pool Member Status Change: pool member 127.20.7.254:10001 in _tmm_firepass_apd_pool_chassis is up.
+Pool Member Status Change: pool member 127.20.8.254:10001 in _tmm_firepass_apd_pool_chassis is up.
+Pool Member Status Change: pool member 127.20.9.254:10001 in _tmm_firepass_apd_pool_chassis is up.
+Pool Member Status Change: pool member 127.20.10.254:10001 in _tmm_firepass_apd_pool_chassis is up.
+Pool Member Status Change: pool member 127.20.11.254:10001 in _tmm_firepass_apd_pool_chassis is up.
+Pool Member Status Change: pool member 127.20.12.254:10001 in _tmm_firepass_apd_pool_chassis is up.
+Pool Member Status Change: pool member 127.0.0.1:19277 in _kmd_pool is up.
+Pool Member Status Change: pool member 127.0.0.1:54321 in _tmm_antserver_pool is up.
+Hash type successfully set to xor_ex
+cmp state: 0x1
+mcp platform message received by tmm
+xnet(0.1)[00:03.0]: TCL force_rx_iq: 1
+xnet(0.1)[00:03.0]: TCL force_tx_iq: 1
+xnet(0.1)[00:03.0]: TCL ign_hw_dag: 0
+xnet(0.1)[00:03.0]: TCL rx_devq_sz: 512
+xnet(0.1)[00:03.0]: TCL tx_devq_sz: 512
+xnet(0.1)[00:03.0]: TCL rx_iq_sz: 256
+xnet(0.1)[00:03.0]: TCL tx_iq_sz: 512
+xnet(0.1)[00:03.0]: TCL max_poll: 64
+xnet(0.1)[00:03.0]: TCL rx_max_devq: 0
+xnet(0.1)[00:03.0]: TCL tx_max_devq: 0
+xnet(0.1)[00:03.0]: TCL allow_sw_lro: 0
+xnet(0.1)[00:03.0]: TCL MTU: 9198
+xnet(0.1)[00:03.0]: TCL force_sw_tcs: 0
+Error in ioctl socket for xeth0 op 35142
+sock[xeth0]: Warning: couldn't get queue count for xeth0. Using single socket.
+xnet_lib [veth:xeth0]: Device attach complete (MAC: 0a:58:0a:80:02:6c Queues: 1/1)
+Error in ioctl socket for xeth0 op 35142
+sock[xeth0]: Warning: cannot set queue count for interface xeth0. Using 1 sockets.
+xnet_lib [veth:xeth0]: Queue configuration complete (rx: 1/512 tx: 1/512)
+xnet(0.1)[00:03.0]: MAC: 0a:58:0a:80:02:6c
+tap[0:0.0]: Open request for tap eth0 received
+Pool Member Status Change: pool member fe80::858:aff:fe80:26c@eth0:0 in snat_automap[0] is up.
+Pool Member Status Change: pool member 10.128.2.108:0 in snat_automap[0] is up.
+xnet(1.1)[3b:00.6]: TCL force_rx_iq: 0
+xnet(1.1)[3b:00.6]: TCL force_tx_iq: 0
+xnet(1.1)[3b:00.6]: TCL ign_hw_dag: 0
+xnet(1.1)[3b:00.6]: TCL rx_devq_sz: 512
+xnet(1.1)[3b:00.6]: TCL tx_devq_sz: 512
+xnet(1.1)[3b:00.6]: TCL rx_iq_sz: 256
+xnet(1.1)[3b:00.6]: TCL tx_iq_sz: 512
+xnet(1.1)[3b:00.6]: TCL max_poll: 64
+xnet(1.1)[3b:00.6]: TCL rx_max_devq: 0
+xnet(1.1)[3b:00.6]: TCL tx_max_devq: 0
+xnet(1.1)[3b:00.6]: TCL allow_sw_lro: 0
+xnet(1.1)[3b:00.6]: TCL MTU: 9198
+xnet(1.1)[3b:00.6]: TCL force_sw_tcs: 0
+xnet_dsel[0000:3b:00.6]: Error: Specified driver (dpdk) is unavailable
+xnet[3b:0.6]: Error: Unable to attach to xnet dev
+xnet(1.1)[3b:00.6]: Error: Unable to initialize device
+tcl_init_proxy: Failed to eval file /usr/lib/tmm/tmm_base.tcl
+Failed to initialize Tcl subsystem.
+
+interface: 1.1 - unable to configure device 0000:3b:00.6 (line 1) (line 1)
+    invoked from within
+"interface 1.1 0000:3b:00.6"
+    (file "tmm_init.tcl" line 17)
+    invoked from within
+"source "tmm_init.tcl""
+    invoked from within
+"if {[file exists "tmm_init.tcl"]} {
+    source "tmm_init.tcl"
+} elseif {[file exists "/config/tmm_init.tcl"]} {
+    source "/config/tmm_init.tcl"
+}"
+    (file "/usr/lib/tmm/tmm_base.tcl" line 3151)mcp platform transaction completed
+ha_tmm_ready/1136: HA set ready flag tmm_ready, mask now 10/12
+<141>Jul 27 09:25:03 f5-tmm-68f497596-n8rqq tmm[14922]: 01490510:5: 00000000: Initializing Access with max global concurrent access session limit: 1000
+<141>Jul 27 09:25:03 f5-tmm-68f497596-n8rqq tmm[14922]: 01490526:5: 00000000: Initializing Access with max global concurrent connectivity session limit: 1000
+<141>Jul 27 09:25:03 f5-tmm-68f497596-n8rqq tmm[14922]: 01490555:5: 00000000: Initializing Access with max global concurrent url filtering session limit: 0
+<141>Jul 27 09:25:03 f5-tmm-68f497596-n8rqq tmm[14922]: 01490569:5: 00000000: Initializing Access with max global concurrent url filtering limited session limit: 0
+tmm ready check passed 
+tmm_start: tcl_init_proxy failed (ERR_TCL).
+Can not open config file: config_core_helper , error: [Errno 2] No such file or directory: 'config_core_helper'

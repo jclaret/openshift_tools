@@ -1,0 +1,70 @@
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: sriovens1f0vf0
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: sriovens1f0vf0
+  nodeSelector:
+    sriov: "true"
+  priority: 99
+  numVfs: 8
+  nicSelector:
+    vendor: "15b3"
+    deviceID: "1015"
+    pfNames: ["ens1f0"]
+    rootDevices: ["0000:3b:00.0"]
+  deviceType: vfio-pci
+---
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: sriovens1f0vf1
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: sriovens1f0vf1
+  nodeSelector:
+    sriov: "true"
+  priority: 99
+  numVfs: 8
+  nicSelector:
+    vendor: "15b3"
+    deviceID: "1015"
+    pfNames: ["ens1f0#1-1"]
+    rootDevices: ["0000:3b:00.1"]
+  deviceType: netdevice
+---
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: sriovens1f1vf0
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: sriovens1f1vf0
+  nodeSelector:
+    sriov: "true"
+  priority: 99
+  numVfs: 8
+  nicSelector:
+    vendor: "15b3"
+    deviceID: "1015"
+    pfNames: ["ens1f1#0-0"]
+  deviceType: vfio-pci
+---
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: sriovens1f1vf1
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: sriovens1f1vf1
+  nodeSelector:
+    sriov: "true"
+  priority: 99
+  numVfs: 8
+  nicSelector:
+    vendor: "15b3"
+    deviceID: "1015"
+    pfNames: ["ens1f1#1-1"]
+  deviceType: netdevice
+---

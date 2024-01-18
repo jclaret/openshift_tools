@@ -1,0 +1,21 @@
+---
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: ens7f1tenantnetdev
+  namespace: openshift-sriov-network-operator
+spec:
+  deviceType: netdevice
+  isRdma: false
+  linkType: eth
+  mtu: 9000
+  nicSelector:
+    deviceID: 158b
+    pfNames:
+    - ens7f1#35-59
+    vendor: "8086"
+  nodeSelector:
+    feature.node.kubernetes.io/network-sriov.capable: "true"
+  numVfs: 60
+  priority: 99
+  resourceName: ens7f1tenantnetdev
