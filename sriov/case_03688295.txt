@@ -1,0 +1,39 @@
+Here's the new steps to do 
+
+1.1) Add this image into your image registry: quay.io/bnemeth/sriov-network-config-daemon:4.12-logs
+
+1.2) Scale the CVO to 0 replicas so we can load a custom image to the SRIOV CSV and prevent it from getting reverted
+
+   $ oc scale --replicas=0 deploy/cluster-version-operator -n openshift-cluster-version
+1.3) Edit the image in the CSV where 'SRIOV_NETWORK_CONFIG_DAEMON_IMAGE' to point to the new image in your registry and save
+
+   $ oc edit -n openshift-sriov-network-operator $(oc get csv -n openshift-sriov-network-operator -l operators.coreos.com/sriov-network-operator.openshift-sriov-network-operator= -o name)
+            - name: SRIOV_NETWORK_CONFIG_DAEMON_IMAGE
+              value: <url_to_image_in_registry>
+1.4) Label the daemonset and delete of all the pods in the sriov-network-config-daemon daemonset (this should trigger the new image in the replacement pods)
+
+   $ oc label daemonset -n openshift-sriov-network-operator sriov-network-config-daemon delete-sriov-network-config-daemon-pods=yes
+   $ oc delete pods -n openshift-sriov-network-operator -l app=sriov-network-config-daemon
+
+1.5) Validate the pod comes up using the new image for only 'sriov-network-config-daemon' (see [1] at bottom for how the image output should look)
+
+   $ oc describe pod -n openshift-sriov-network-operator $(oc get pods -n openshift-sriov-network-operator -l app=sriov-network-config-daemon -o wide | awk '/worker-002/{print $1}') | grep "Image:"
+
+1.6) Remove the label
+
+   $ oc label daemonset -n openshift-sriov-network-operator sriov-network-config-daemon delete-sriov-network-config-daemon-pods-
+
+1.7) Take a must-gather of the cluster
+
+   $ oc adm must-gather
+
+If that doesn't work or provide anything, try editing the 'Draining' state to 'Idle' and save
+
+$ oc edit node worker-002
+ sriovnetwork.openshift.io/state: Idle
+
+Try removing the label from the node (this may trigger a reboot of the node but should remove the SRIOV daemonset pods).. then re-add and see if VFs come back
+
+
+$ oc label node worker-002 feature.node.kubernetes.io/network-sriov.capable-
+$ oc label node worker-002 feature.node.kubernetes.io/network-sriov.capable="true" --overwrite
