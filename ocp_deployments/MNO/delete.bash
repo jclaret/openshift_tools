@@ -1,0 +1,1 @@
+kcli delete kube mno

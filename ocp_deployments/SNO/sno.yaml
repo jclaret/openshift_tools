@@ -1,0 +1,34 @@
+version: stable
+tag: "4.14.5"
+virtual_protocol: redfish
+virtual_ctlplanes: true
+launch_steps: true
+deploy_openshift: true
+cluster: sno
+domain: 5g-deployment.lab
+network: 5gdeploymentlab
+baremetal_cidr: 192.168.125.0/24
+baremetal_net: 5gdeploymentlab
+virtual_ctlplanes_memory: 16384
+virtual_ctlplanes_numcpus: 8
+ctlplanes: 1
+workers: 0
+api_ip: 192.168.125.10
+ingress_ip: 192.168.125.11
+baremetal_ips:
+- 192.168.125.20
+- 192.168.125.21
+- 192.168.125.22
+- 192.168.125.23
+- 192.168.125.24
+- 192.168.125.25
+baremetal_macs:
+- aa:aa:aa:aa:bb:01
+- aa:aa:aa:aa:bb:02
+- aa:aa:aa:aa:bb:03
+- aa:aa:aa:aa:bb:04
+- aa:aa:aa:aa:bb:05
+- aa:aa:aa:aa:bb:06
+virtual_ctlplanes_static_network: true
+installer_ip: 192.168.125.250
+baremetal_bootstrap_ip: 192.168.125.251
