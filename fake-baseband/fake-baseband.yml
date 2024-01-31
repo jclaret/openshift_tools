@@ -1,0 +1,46 @@
+# https://issues.redhat.com/browse/OCPBUGS-27408
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: baseband
+  labels:
+    app: baseband
+spec:
+  selector:
+    matchLabels:
+      app: baseband
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        cpu-load-balancing.crio.io: disable
+        cpu-quota.crio.io: disable
+        irq-load-balancing.crio.io: "disable"
+      labels:
+        app: baseband
+    spec:
+      runtimeClassName: performance-openshift-node-performance-profile
+      shareProcessNamespace: true
+      containers:
+      - image: quay.io/bzhai/nginx
+        name: baseband
+        resources:
+          requests:
+            cpu: 16
+            memory: "200M"
+          limits:
+            cpu: 16
+            memory: "200M"
+        command: ["/bin/sh", "-c"]
+        args: [ "while true; do sleep 100000; done;" ]
+      - image: quay.io/bzhai/nginx
+        name: whatever
+        resources:
+          requests:
+            cpu: 500m
+            memory: "200M"
+          limits:
+            cpu: 500m
+            memory: "200M"
+        command: ["/bin/sh", "-c"]
+        args: [ "while true; do sleep 100000; done;" ]
