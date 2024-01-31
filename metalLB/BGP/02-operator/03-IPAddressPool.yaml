@@ -1,0 +1,33 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  namespace: metallb-system
+  name: address-pool-bgp
+spec:
+  addresses:
+  - 10.19.1.141-10.19.1.142
+---
+apiVersion: metallb.io/v1beta1
+kind: BGPAdvertisement
+metadata:
+  name: bgpadvertisement-basic
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - address-pool-bgp
+  peers:
+    - peer-test
+  aggregationLength: 32
+  aggregationLengthV6: 128
+---
+apiVersion: metallb.io/v1beta1
+kind: BGPPeer
+metadata:
+  name: peer-test
+  namespace: metallb-system
+spec:
+  peerPort: 179
+  myASN: 64520
+  peerASN: 64521
+  peerAddress: 10.19.1.140
+  ebgpMultiHop: True

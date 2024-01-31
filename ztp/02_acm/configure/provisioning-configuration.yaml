@@ -1,0 +1,44 @@
+apiVersion: metal3.io/v1alpha1
+kind: Provisioning
+metadata:
+  creationTimestamp: "2024-01-19T18:19:58Z"
+  finalizers:
+  - provisioning.metal3.io
+  generation: 3
+  name: provisioning-configuration
+  resourceVersion: "6330192"
+  uid: d351fbc7-dcc7-4389-81a7-a675ae234893
+spec:
+  preProvisioningOSDownloadURLs: {}
+  provisioningDHCPRange: 172.22.0.10,172.22.7.254
+  provisioningIP: 172.22.0.3
+  provisioningInterface: enp1s0
+  provisioningMacAddresses:
+  - aa:aa:aa:aa:ab:00
+  - aa:aa:aa:aa:ab:01
+  - aa:aa:aa:aa:ab:02
+  provisioningNetwork: Managed
+  provisioningNetworkCIDR: 172.22.0.0/21
+  watchAllNamespaces: true
+status:
+  generations:
+  - group: apps
+    hash: ""
+    lastGeneration: 2
+    name: metal3
+    namespace: openshift-machine-api
+    resource: deployments
+  - group: admissionregistration.k8s.io
+    hash: ""
+    lastGeneration: 1
+    name: baremetal-operator-validating-webhook-configuration
+    namespace: ""
+    resource: validatingwebhookconfigurations
+  - group: apps
+    hash: ""
+    lastGeneration: 1
+    name: metal3-image-customization
+    namespace: openshift-machine-api
+    resource: deployments
+  observedGeneration: 3
+  readyReplicas: 0

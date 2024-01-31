@@ -1,0 +1,36 @@
+frr version 8.0.1_git
+frr defaults traditional
+hostname frr-upstream
+!
+debug bgp updates
+debug bgp neighbor
+debug zebra nht
+debug bgp nht
+debug bfd peer
+log file /tmp/frr.log debugging
+log timestamp precision 3
+!
+interface virbr2
+ ip address 192.168.133.1/24
+!
+router bgp 64521
+ bgp router-id 192.168.133.1
+ timers bgp 3 15
+ no bgp ebgp-requires-policy
+ no bgp default ipv4-unicast
+ no bgp network import-check
+ neighbor metallb peer-group
+ neighbor metallb remote-as 64520
+ neighbor 192.168.133.71 peer-group metallb
+ neighbor 192.168.133.71 bfd
+ neighbor 192.168.133.72 peer-group metallb
+ neighbor 192.168.133.72 bfd
+!
+ address-family ipv4 unicast
+  neighbor 192.168.133.71 next-hop-self
+  neighbor 192.168.133.71 activate
+  neighbor 192.168.133.72 next-hop-self
+  neighbor 192.168.133.72 activate
+ exit-address-family
+!
+line vty

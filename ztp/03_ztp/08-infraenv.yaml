@@ -1,0 +1,20 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: InfraEnv
+metadata:
+  name: ztp-spoke-01
+  namespace: ztp-spoke-01
+spec:
+  additionalNTPSources:
+    - 0.rhel.pool.ntp.org
+  clusterRef:
+    name: ztp-spoke-01
+    namespace: ztp-spoke-01
+  sshAuthorizedKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCotn4YZyRjfMmOCCSrcTSjGJrUe1ImcHFuG6JY169CvhQGAUc8m0caAEoIfnYV8W4HoV9EOZT/vY3T47BgLKwSTbCxZJQ09RKF95w3Ur4qT2N8/I50UqoZLfb74n/kHbHaoGDs2qX7dYoX761vmNSEsxfdWBvLruXNu1kwOlc6HnIeRjWZC0N26/meni+ofd8X4F9BLcCqajmTQx+hHznOih/n37scSRqv2VbbE2R9PAfrOIRNLwoRcE2rTjyDY9eRuHg375yXEdUq8rRm0s9FBf9lr3+31fdOWeUF2nCXSx2ClfSEHX5Tv0RuB8CIjBORNRYQVMrIGEUjTaay6nFePlFElDfM6vU4ptya03IASa7RF5p+EJC2sXzIvwwvWe1i3LSeCtQOj2pKvi6Jj54UteHoW+Y67P6XIeygLNV65sYJJYolxIdqI/Qj/yaZPXDOoUORKDDiKFFeV8rvgXP6ZPgknYoKrl8FuQn13WGqFD0R7/JfJn+wrR4kOYZriyM= ansible-generated on rna1-worker-0.rna1.cloud.lab.eng.bos.redhat.com"
+  agentLabelSelector:
+    matchLabels:
+      cluster-name: ztp-spoke-01
+  pullSecretRef:
+    name: pull-secret
+  nmStateConfigLabelSelector:
+    matchLabels:
+      cluster-name: ztp-spoke-01

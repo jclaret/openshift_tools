@@ -1,0 +1,18 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+    labels:
+        nmstate-label: ztp-spoke-01
+    name: ztp-spoke-01
+    namespace: ztp-spoke-01
+spec:
+    config:
+        interfaces:
+            - ipv4:
+                address:
+                - ip: 10.19.1.140
+                  prefix-length: 25
+                enabled: true
+              name: eno2
+              state: up
+              type: ethernet

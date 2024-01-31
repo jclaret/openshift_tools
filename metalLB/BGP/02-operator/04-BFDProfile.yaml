@@ -1,0 +1,11 @@
+apiVersion: metallb.io/v1beta1
+kind: BFDProfile
+metadata:
+  name: test-bfd-prof
+  namespace: metallb-system
+spec:
+  receiveInterval: 300
+  transmitInterval: 300
+  detectMultiplier: 3
+  passiveMode: true
+  minimumTtl: 254
