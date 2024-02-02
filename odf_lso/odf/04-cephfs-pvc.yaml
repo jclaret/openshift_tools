@@ -17,22 +17,29 @@ spec:
       storage: 1Gi
   storageClassName: ocs-storagecluster-cephfs
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: task-pv-pod
-  namespace: cephfs-pvc
+  name: deployment-with-volume
 spec:
-  volumes:
-    - name: cephfs-pvc
-      persistentVolumeClaim:
-        claimName: cephfs-pvc
-  containers:
-    - name: task-pv-container
-      image: nginx
-      ports:
-        - containerPort: 80
-          name: "http-server"
-      volumeMounts:
-        - mountPath: "/usr/share/nginx/html"
-          name: cephfs-pvc
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: fc-container
+        image: fedora:32
+        command: ["/bin/sh", "-c"]
+        args: ["tail -f /dev/null"]
+        volumeMounts:
+        - name: data
+          mountPath: /data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: cephfs-pvc
