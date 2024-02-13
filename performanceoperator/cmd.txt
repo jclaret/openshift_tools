@@ -1,0 +1,12 @@
+# profiles
+oc get tuned.tuned.openshift.io/default -o yaml -n openshift-cluster-node-tuning-operator
+# contents of default profiles
+oc exec tuned-9d5nt -n openshift-cluster-node-tuning-operator -- find /usr/lib/tuned/openshift{,-control-plane,-node} -name tuned.conf -exec grep -H ^ {} \;
+# TuneD profiles are applied
+oc get profile.tuned.openshift.io -n openshift-cluster-node-tuning-operator
+# status ClusterOperator/node-tuning
+oc get co/node-tuning -n openshift-cluster-node-tuning-operator
+# performance profile
+oc get performanceprofile
+
+

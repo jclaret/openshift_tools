@@ -21,6 +21,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deployment-with-volume
+  namespace: cephfs-pvc
 spec:
   replicas: 1
   selector:
